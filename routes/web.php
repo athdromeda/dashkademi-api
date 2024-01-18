@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/token', function(){
+    return csrf_token();
+});
+
 Route::get('/api/classrooms', [ClassroomController::class, 'index']);
+Route::post('/api/students', [StudentController::class, 'create']);
+Route::get('/api/students', [StudentController::class, 'index']);
