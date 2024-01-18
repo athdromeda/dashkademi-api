@@ -16,50 +16,27 @@ class ClassroomController extends Controller
         return $data;
     }
 
+    public function detail($name)
+    {
+        $classroom = Classroom::where('name', $name)->firstOrFail();
+        $classroomDescription = $classroom->description;
+
+        return ['classroom' => $name, 'description' => $classroomDescription, 'students' => $classroom->students];
+    }
+
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        Classroom::create($request->all());
+        return response(['message' => 'New classroom created'], 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
     {
         //
     }

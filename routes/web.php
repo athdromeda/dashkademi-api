@@ -24,5 +24,8 @@ Route::get('/token', function(){
 });
 
 Route::get('/api/classrooms', [ClassroomController::class, 'index']);
+Route::post('/api/classrooms', [ClassroomController::class, 'create']);
+Route::get('/api/classrooms/{name}', [ClassroomController::class, 'detail']);
+
 Route::post('/api/students', [StudentController::class, 'create']);
 Route::get('/api/students', [StudentController::class, 'index']);
