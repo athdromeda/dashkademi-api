@@ -11,5 +11,10 @@ class Classroom extends Model
     protected $collection = "classrooms";
     public $timestamps = false;
 
-    protected $fillable = ["title", "description", "students"];
+    protected $fillable = ["name", "description"];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
 }
