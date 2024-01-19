@@ -31,6 +31,7 @@ Route::put('/api/classrooms/{name}', [ClassroomController::class, 'update']);
 
 Route::post('/api/students', [StudentController::class, 'create']);
 Route::get('/api/students', [StudentController::class, 'index']);
+Route::get('/api/students/{id}', [StudentController::class, 'detail']);
 
 Route::post('/api/grades', [GradeController::class, 'create']);
 Route::get('/api/grades/{id}', [GradeController::class, 'index']);
