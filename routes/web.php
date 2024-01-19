@@ -20,13 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/token', function(){
+Route::get('/token', function () {
     return csrf_token();
 });
 
 Route::get('/api/classrooms', [ClassroomController::class, 'index']);
 Route::post('/api/classrooms', [ClassroomController::class, 'create']);
 Route::get('/api/classrooms/{name}', [ClassroomController::class, 'detail']);
+Route::put('/api/classrooms/{name}', [ClassroomController::class, 'update']);
 
 Route::post('/api/students', [StudentController::class, 'create']);
 Route::get('/api/students', [StudentController::class, 'index']);

@@ -36,8 +36,11 @@ class ClassroomController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $name)
     {
-        //
+        $classroom = Classroom::where('name', $name)->firstOrFail();
+        $classroom->update($request->all());
+
+        return response(['message' => 'Classroom successfully updated'], 200);
     }
 }
