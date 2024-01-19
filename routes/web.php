@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,5 @@ Route::get('/api/classrooms/{name}', [ClassroomController::class, 'detail']);
 
 Route::post('/api/students', [StudentController::class, 'create']);
 Route::get('/api/students', [StudentController::class, 'index']);
+
+Route::post('/api/grades', [GradeController::class, 'create']);
