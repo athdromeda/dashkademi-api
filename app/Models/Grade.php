@@ -9,7 +9,14 @@ class Grade extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["student_id", "latihan_1", "latihan_2", "latihan_3", "latihan_4", "harian_1", "harian_2", "uts", "uas"];
+    protected $fillable = ["student_id", "mat", "eng", "art", "che", "phy"];
+    protected $cast = [
+        'mat' => 'array',
+        'eng' => 'array',
+        'art' => 'array',
+        'che' => 'array',
+        'phy' => 'array'
+    ];
 
     public function student()
     {
